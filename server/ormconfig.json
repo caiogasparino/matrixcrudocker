@@ -1,0 +1,26 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "postgres-api",
+    "port": 5432,
+    "username": "postgres",
+    "password": "docker",
+    "database": "desenv",
+    "migrationsRun": true,
+    "entities": ["./src/entities/*.ts"],
+    "migrations": ["./src/database/migrations/*.ts"],
+    "cli": {
+      "migrationsDir": "./src/database/migrations"
+    }
+  },
+  {
+    "name": "mongo",
+    "type": "mongodb",
+    "host": "mongo-api",
+    "port": 27017,
+    "database": "desenv",
+    "useUnifiedTopology": true,
+    "entities": ["./src/schemas/*.ts"]
+  }
+]

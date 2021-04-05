@@ -1,0 +1,100 @@
+import { register } from '../../../useCases/Persons/register';
+
+export async function personsSeeds(): Promise<void> {
+  const persons = [
+    {
+      name: 'João Pedro',
+      phone_number: '11 1111-1111',
+      cellphone_number: '11 11111-1111',
+      cep: '02012030',
+      street: 'Praça A Gazeta da Zona Norte',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'ADVOGADO',
+    },
+    {
+      name: 'João Miguel',
+      phone_number: '22 2222-2222',
+      cellphone_number: '22 22222-2222',
+      cep: '05541320',
+      street: 'Rua Abraham Bloemaert',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'DENTISTA',
+    },
+    {
+      name: 'Maria Luana',
+      phone_number: '33 3333-3333',
+      cellphone_number: '33 33333-3333',
+      cep: '04131110',
+      street: 'Rua Abraham Bosse',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'MEDICO',
+    },
+    {
+      name: 'Enzo Gabriel',
+      phone_number: '44 4444-4444',
+      cellphone_number: '44 44444-4444',
+      cep: '04286100',
+      street: 'Rua Abrahão Calux',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'DESENVOLVEDOR',
+    },
+    {
+      name: 'Maria Eduarda',
+      phone_number: '55 5555-5555',
+      cellphone_number: '55 55555-5555',
+      cep: '05516060',
+      street: 'Rua Abrahão Jorge Miguel',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'FISIOTERAPEUTA',
+    },
+    {
+      name: 'João Lucas',
+      phone_number: '66 6666-6666',
+      cellphone_number: '66 66666-6666',
+      cep: '05852410',
+      street: 'Rua Abram Chaim Pryzant',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'ADVOGADO',
+    },
+    {
+      name: 'Maria Alice',
+      phone_number: '77 7777-7777',
+      cellphone_number: '77 77777-7777',
+      cep: '05625050',
+      street: 'Rua Abrão Calil Rezek',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'VENDEDOR',
+    },
+    {
+      name: 'Maria Clara',
+      phone_number: '88 8888-8888',
+      cellphone_number: '88 88888-8888',
+      cep: '04038030',
+      street: 'Rua Borges Lagoa',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'ANALISTA TI',
+    },
+    {
+      name: 'Leticia Maria',
+      phone_number: '99 9999-9999',
+      cellphone_number: '99 99999-9999',
+      cep: '04142081',
+      street: 'Avenida Bosque da Saúde',
+      state: 'SP',
+      city: 'São Paulo',
+      profession: 'VIGILANTE',
+    },
+  ];
+
+  persons.map(async (person) => {
+    await register(person);
+  });
+}

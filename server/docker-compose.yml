@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+  nodejs-api:
+    container_name: matrix-api
+    build: '.'
+    volumes:
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    depends_on:
+      - postgres-api
+      - mongo-api
+    networks:
+      - app-connect
+    ports:
+      - '3333:3333'
+
+  mongo-api:
+    container_name: mongo-api
+    image: 'mongo'
+    restart: unless-stopped
+    volumes:
+      - mongo-api-data:/data
+    ports:
+      - '27017:27017'
+    networks:
+      - app-connect
+
+  postgres-api:
+    container_name: postgres-api
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: desenv
+    volumes:
+      - postgres-api-data:/data
+    ports:
+      - '5432:5432'
+    networks:
+      - app-connect
+
+volumes:
+  postgres-api-data:
+  mongo-api-data:
+
+networks:
+  app-connect:
+    driver: bridge
